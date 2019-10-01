@@ -8,10 +8,11 @@ namespace BinMaxHeap
         {
             var myHeap = new MyBinMaxHeap(100001);
             var commandsAmount = int.Parse(Console.ReadLine());
+
             for (var i = 0; i < commandsAmount; i++)
             {
-                var commandParams = Console.ReadLine().Split();
-                switch (commandParams[0])
+                var commandParams = Console.ReadLine()?.Split();
+                switch (commandParams?[0])
                 {
                     case "Insert" :
                         myHeap.Add(int.Parse(commandParams[1]));
@@ -85,7 +86,8 @@ namespace BinMaxHeap
                 return -1;
             var presumedRightIndex = presumedLeftIndex + 1;
             if (presumedRightIndex > _indexOfLastElement) return presumedLeftIndex;
-            return presumedRightIndex > presumedLeftIndex ? presumedRightIndex : presumedLeftIndex;
+            return _body[presumedRightIndex] > _body[presumedLeftIndex] 
+                ? presumedRightIndex : presumedLeftIndex;
         }
 
         private void Swap(int index1, int index2)
