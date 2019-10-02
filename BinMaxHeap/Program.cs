@@ -7,7 +7,7 @@ namespace BinMaxHeap
         public static void Main()
         {
             var myHeap = new MyBinMaxHeap(100001);
-            var commandsAmount = int.Parse(Console.ReadLine());
+            var commandsAmount = int.Parse(Console.ReadLine() ?? throw new ArgumentException());
 
             for (var i = 0; i < commandsAmount; i++)
             {
